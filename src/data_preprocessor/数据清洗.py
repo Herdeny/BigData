@@ -53,6 +53,7 @@ df_all.to_csv(output_path, index=False, encoding='utf-8-sig')
 
 categories = pd.read_csv(os.path.join(base_path, categories_path), encoding='gbk')
 categories.fillna(-1, inplace=True)
+categories['parent'] = categories['parent'].astype(int)
 categories.to_csv(os.path.join(data_path, categories_path), encoding='utf-8-sig', index=False)
 
 print(f"清洗完成，已保存到 {data_path}，共 {len(df_all)} 条记录")
